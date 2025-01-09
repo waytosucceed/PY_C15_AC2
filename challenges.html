@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenges</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    main{
+        width: 85%;
+        /* grid-template-columns: repeat(1, 1fr); */
+        /* display: flex; */
+        justify-content: center;
+        align-items: center;
+
+    }
+</style>
+<body>
+    <header class="header">
+        <img src="./logo/Logo.png" alt="Logo" class="logo" />
+        <img src="./logo/header.png" alt="Header" class="header-image" />
+    </header>
+
+    <p style="text-align: center; font-size: 1.7rem; font-weight: bold; margin-bottom: 0;">Challenges</p>
+    <main>
+        <section id="activity1" style="display: flex; flex-direction: column; align-items: center;">
+            <h2>Challenge 1: Social Media Moderator</h2>
+            <p style="font-size: 1.2rem;">
+                You have been assigned to moderate a social media platform where certain words are not allowed in user posts. Build a tool that checks a message and censors restricted words, making the post safe to share.
+            </p>
+            <p style="font-size: 1.2rem;">This tool should be able to do the following tasks:</p>
+            <ul style="text-align: left; font-size: 1.2rem;">
+                <li>Analyze the message entered by the user and detect restricted words.</li>
+                <li>Keep a count of restricted words found and inform the user about it.</li>
+                <li>Censor the restricted words in the post by replacing them with ***.</li>
+                <li>The user should not be allowed to post if restricted words are more than 3.</li>
+            </ul>
+            
+            <button class="show-answer-btn" id="show-answer-btn1">Show Code</button>
+            <img src="./images/10.png" class="answer-img" id="answer-img1" alt="Social media moderation example" style="width: 100%; display: none;">
+        </section>
+        
+    
+        
+    </main>
+    
+    
+    
+    
+
+    <button class="goback" onclick="window.location.href='index.html'">Go Back</button>
+    <br>
+<!-- 
+    <script>
+     
+    document.getElementById('show-answer-btn1').addEventListener('click', function() {
+            var img = document.getElementById('answer-img1');
+            if (img.style.display === 'none' || img.style.display === '') {
+                img.style.display = 'block';
+                this.textContent = 'Hide Code';
+            } else {
+                img.style.display = 'none';
+                this.textContent = 'Show Code';
+            }
+        });
+    
+
+        document.getElementById('show-answer-btn2').addEventListener('click', function() {
+            var img = document.getElementById('answer-img2');
+            if (img.style.display === 'none' || img.style.display === '') {
+                img.style.display = 'block';
+                this.textContent = 'Hide Code';
+            } else {
+                img.style.display = 'none';
+                this.textContent = 'Show Code';
+            }
+        });
+    
+        document.getElementById('show-answer-btn3').addEventListener('click', function() {
+            var img = document.getElementById('answer-img4');
+            if (img.style.display === 'none' || img.style.display === '') {
+                img.style.display = 'block';
+                this.textContent = 'Hide Code';
+            } else {
+                img.style.display = 'none';
+                this.textContent = 'Show Code';
+            }
+        });
+
+    </script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            for (let i = 1; i <= 2; i++) {
+                const showAnswerBtn = document.getElementById('show-answer-btn' + i);
+                const img = document.getElementById('answer-img' + i);
+    
+                // Create the container div
+                const container = document.createElement('div');
+                container.classList.add('image-container');
+                img.parentNode.insertBefore(container, img);
+                container.appendChild(img);
+    
+                // Create the full-screen icon
+                const icon = document.createElement('span');
+                icon.classList.add('fullscreen-icon');
+                icon.innerHTML = '⛶';
+                icon.style.color = 'white'; 
+                icon.style.display = 'none'; // Initially hide the icon
+                container.appendChild(icon);
+    
+                // Event listener to show/hide image and icon
+                showAnswerBtn.addEventListener('click', function() {
+                    if (img.style.display === 'none' || img.style.display === '') {
+                        img.style.display = 'block';
+                        icon.style.display = 'block'; // Show the icon when the image is displayed
+                        this.textContent = 'Hide Code';
+                    } else {
+                        img.style.display = 'none';
+                        icon.style.display = 'none'; // Hide the icon when the image is hidden
+                        this.textContent = 'Show Code';
+                    }
+                });
+    
+                // Add full-screen functionality
+                icon.addEventListener('click', function () {
+                    openFullscreen(img.src);
+                });
+    
+                img.style.display = 'none'; // Initially hide the image
+            }
+        });
+    
+        function openFullscreen(imageSrc) {
+    let fullScreenWindow = window.open("");
+    fullScreenWindow.document.write(`
+        <img src="${imageSrc}" style="display: block; max-width: 100%; max-height: 100vh; margin: auto;">
+    `);
+    fullScreenWindow.document.body.style.margin = "0";
+}
+    </script>
+</body>
+</html>
